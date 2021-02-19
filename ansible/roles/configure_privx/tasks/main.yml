@@ -1,0 +1,21 @@
+---
+- name: Detect if keyvault already exist
+  stat:
+    path: /opt/privx/keyvault
+  register: keyvault
+
+- name: Generate privx configuration script using template
+  template:
+    src: config.j2
+    dest: "{{ CONFIGURATION_SCRIPT }}"
+    mode: 0700
+  when: not keyvault.stat.exists
+
+- name: Execute privx configuration script
+  command: "{{ CONFIGURATION_SCRIPT }}"
+  when: not keyvault.stat.exists
+
+- name: Delete privx configuraiton script
+  file:
+    path: "{{ CONFIGURATION_SCRIPT }}"
+    state: absent

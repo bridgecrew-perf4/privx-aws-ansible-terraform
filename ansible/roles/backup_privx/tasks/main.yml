@@ -1,0 +1,24 @@
+---
+- name: Create backup
+  command: "{{ BACKUP_SCRIPT }}"
+
+- name: Find backup
+  find:
+    paths: /var/backups/privx
+    file_type: directory
+  register: backups
+
+- name: Get latest backup
+  set_fact:
+    latest_backup: "{{ backups.files | sort(attribute='mtime') | last }}"
+
+- name: Compress backup directory
+  archive:
+    path:
+    - "{{ latest_backup['path'] }}/*"
+    dest: "{{ BACKUP_FILE }}"
+
+- name: Fetch backup
+  fetch:
+    src: "{{ BACKUP_FILE }}"
+    dest: /tmp

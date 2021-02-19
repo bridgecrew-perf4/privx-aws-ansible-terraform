@@ -1,0 +1,4 @@
+---
+RESTORE_SCRIPT: /opt/privx/scripts/restore.sh
+BACKUP_LOCATION: /tmp/tmp_privx_backup
+POST_INSTALL_SCRIPT: /opt/privx/scripts/postinstall.sh

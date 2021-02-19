@@ -1,0 +1,10 @@
+# Compiled files
+*.tfstate
+*.tfstate.backup
+*.stackdump
+terraform.tfvars
+.terraform.lock.hcl
+
+#Module direcotry
+.terraform/
+.idea

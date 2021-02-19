@@ -1,0 +1,25 @@
+---
+- name: install_epel-release
+  yum:
+    name: epel-release
+    state: installed
+
+- name: install ssh product rpm key
+  rpm_key:
+    state: present
+    key: https://product-repository.ssh.com/info.fi-ssh.com-pubkey.asc
+
+- name: Add SSH Product REPO
+  yum_repository:
+    name: ssh-products
+    description: SSH Product Repository - $basearch
+    baseurl: https://product-repository.ssh.com/$basearch/
+    enabled: yes
+    gpgkey: https://product-repository.ssh.com/info.fi-ssh.com-pubkey.asc
+    gpgcheck: yes
+    file: ssh-products.repo
+
+- name: install_privx
+  yum:
+    name: PrivX
+    state: installed

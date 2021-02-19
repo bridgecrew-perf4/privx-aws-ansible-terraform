@@ -1,0 +1,34 @@
+---
+- name: Install and configure privx
+  hosts: "{{ passed_in_hosts }}"
+  remote_user: "{{ remote_username }}"
+  become: yes
+
+  tasks:
+    - name: Install Privx
+      import_role:
+        name: install_privx
+      tags:
+        - install
+
+    - name: Configure PrivX
+      import_role:
+        name: configure_privx
+      tags:
+        - configure
+
+    - name: Backup PrivX config
+      vars:
+        BACKUP_FILE: /tmp/privx_backup.tgz
+      import_role:
+        name: backup_privx
+      tags:
+        - backup
+
+    - name: Configure addtional PrivX servers
+      vars:
+        BACKUP_FILE: /tmp/privx_backup.tgz
+      import_role:
+        name: configure_additional_prix
+      tags:
+        - configure_addtional

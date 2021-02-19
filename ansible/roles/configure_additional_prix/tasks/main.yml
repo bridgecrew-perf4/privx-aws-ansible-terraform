@@ -1,0 +1,13 @@
+---
+- name: Create directory
+  file:
+    path: "{{ BACKUP_LOCATION }}"
+    state: directory
+
+- name: Copy and uncompress backup
+  unarchive:
+    src: "/tmp/{{ privx_first }}{{ BACKUP_FILE }}"
+    dest: "{{ BACKUP_LOCATION }}"
+  notify:
+    - Restore backup
+    - Run postinstall script

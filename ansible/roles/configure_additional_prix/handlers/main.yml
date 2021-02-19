@@ -1,0 +1,7 @@
+---
+
+- name: Restore backup
+  command: "{{ RESTORE_SCRIPT }} {{ BACKUP_LOCATION }}"
+
+- name: Run postinstall script
+  command: "{{ POST_INSTALL_SCRIPT }}"

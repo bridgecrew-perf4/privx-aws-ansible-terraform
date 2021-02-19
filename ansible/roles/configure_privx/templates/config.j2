@@ -1,0 +1,21 @@
+#!/bin/bash
+export PRIVX_DNS_NAMES="{{ public_fqdn }}"
+export PRIVX_IP_ADDRESSES="{{ ansible_default_ipv4.address }}"
+export PRIVX_SUPERUSER="{{ privx_superuser }}"
+export PRIVX_SUPERUSER_PASSWORD="{{ superuser_password }}"
+export PRIVX_SUPERUSER_EMAIL="{{ privx_superuser }}@{{ email_domain }}"
+export PRIVX_USE_EXTERNAL_DATABASE=1
+export PRIVX_DATABASE_NAME="{{ database_name }}"
+export PRIVX_DATABASE_USERNAME="{{ database_username }}"
+export PRIVX_DATABASE_PASSWORD="{{ database_password }}"
+export PRIVX_POSTGRES_ADDRESS="{{ postgres_address }}"
+export PRIVX_POSTGRES_PORT=5432
+export DB_EXTERNAL_CREATE_PSQL_USER=false
+export DB_EXTERNAL_CREATE_PSQL_DATABASE=false
+export PRIVX_DATABASE_SSLMODE=require
+export PRIVX_REDIS_ADDRESS="{{ redis_address }}"
+export PRIVX_REDIS_PORT=6379
+export PRIVX_REDIS_PASSWORD_REQUIRED=0
+export PRIVX_KEYVAULT_PKCS11_ENABLE=0
+export PRIVX_NTP_SERVER="pool.ntp.org"
+/opt/privx/scripts/postinstall.sh
