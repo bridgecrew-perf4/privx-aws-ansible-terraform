@@ -1,7 +1,3 @@
-output "privx_publicdns" {
-  value = aws_instance.privx.public_dns
-}
-
 output "privx-public-fqdn" {
   value = aws_route53_record.privx_dns_record.fqdn
 }
