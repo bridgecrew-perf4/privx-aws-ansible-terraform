@@ -25,6 +25,8 @@ This repository contain terraform code to spin 1 or more EC2 instances, setup AW
 1.  Install [AWS CLI](https://aws.amazon.com/cli/) and use `aws configure` command to configure it.
 1.  Install [Terraform](https://www.terraform.io/).
 1.  Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-rhel-centos-or-fedora)
+1.  Install boto3 for Ansible dynamic inventory `pip3 install boto3 --user`
+
 
 #### Mandatory variables to be updated (create terraform.tfvars file and populate value for below listed variables)
 ```
