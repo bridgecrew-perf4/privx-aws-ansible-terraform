@@ -46,27 +46,6 @@ resource "aws_security_group" "privx-db" {
   }
 }
 
-resource "aws_security_group" "privx-redis" {
-  vpc_id = aws_default_vpc.default.id
-
-  ingress {
-    cidr_blocks = [aws_default_vpc.default.cidr_block]
-    from_port   = 6379
-    protocol    = "tcp"
-    to_port     = 6379
-  }
-  egress {
-    from_port   = 0
-    protocol    = "-1"
-    to_port     = 0
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  tags = {
-    Name      = "PRIVXREDIS"
-    Terraform = "True"
-  }
-}
-
 resource "aws_security_group" "privx" {
   vpc_id = aws_default_vpc.default.id
 

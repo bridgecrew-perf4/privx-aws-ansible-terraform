@@ -13,9 +13,7 @@ export PRIVX_POSTGRES_PORT=5432
 export DB_EXTERNAL_CREATE_PSQL_USER=false
 export DB_EXTERNAL_CREATE_PSQL_DATABASE=false
 export PRIVX_DATABASE_SSLMODE=require
-export PRIVX_REDIS_ADDRESS="{{ redis_address }}"
-export PRIVX_REDIS_PORT=6379
-export PRIVX_REDIS_PASSWORD_REQUIRED=0
+export PRIVX_NOTIFICATION_BACKEND=db
 export PRIVX_KEYVAULT_PKCS11_ENABLE=0
 export PRIVX_NTP_SERVER="pool.ntp.org"
 /opt/privx/scripts/postinstall.sh

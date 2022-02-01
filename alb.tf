@@ -16,7 +16,7 @@ resource "aws_lb_target_group" "app-lb-tg" {
   vpc_id      = aws_default_vpc.default.id
   protocol    = "HTTPS"
   stickiness {
-    type = "lb_cookie"
+    type            = "lb_cookie"
     cookie_duration = "28800"
   }
   health_check {

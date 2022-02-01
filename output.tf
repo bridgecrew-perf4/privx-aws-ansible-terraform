@@ -3,9 +3,11 @@ output "privx-public-fqdn" {
 }
 
 output "database_password" {
-  value = random_password.database_password.result
+  value     = random_password.database_password.result
+  sensitive = true
 }
 
 output "superuser_password" {
-  value = random_password.superuser_password.result
+  value     = random_password.superuser_password.result
+  sensitive = true
 }

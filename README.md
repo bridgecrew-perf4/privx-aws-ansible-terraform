@@ -3,11 +3,9 @@ This repo simplifies PrivX on-boarding experience with deployment automation usi
 
 
 ## Description:
-This repository contain terraform code to spin 1 or more EC2 instances, setup AWS RDS postgreSQL database, AWS ElastiCache redis and AWS Application Load Balancer, AWS Certificate Manager for TLS/https, AWS Route53 for DNS and ansible for PrivX installation and configuration.
+This repository contain terraform code to spin 1 or more EC2 instances, setup AWS RDS postgreSQL database and AWS Application Load Balancer, AWS Certificate Manager for TLS/https, AWS Route53 for DNS and ansible for PrivX installation and configuration.
 
 * Postgresql Database : AWS RDS PostgreSQL Database
-
-* Redis Cache  : AWS ElasticCache Redis 
 
 * PrivX Servers :  Centos7 AMI used for this instance. For High Availability setup value for variable "additional_privx_instance_count" can be set to 1 or more. 
 
@@ -62,9 +60,6 @@ additional_privx_instance_count = 0
 
 # Instance type for database instance
 instance_typedb = "db.t2.medium"
-
-# Redis cache node type(memory capacity of node)
-node_type = "cache.t2.small"
 ```
 
 ### Warning

@@ -68,12 +68,6 @@ variable "database_username" {
   description = "Name of master database user"
 }
 
-variable "node_type" {
-  default     = "cache.t2.small"
-  type        = string
-  description = "redis cache node type(memory capacity of node)"
-}
-
 variable "dns-domain" {
   type        = string
   description = "Public Route53 domain with dot at end"
